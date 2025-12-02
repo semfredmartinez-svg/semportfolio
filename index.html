@@ -11,22 +11,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <!-- Avatar: previewed client-side, stored to repo manually -->
+        <!-- Static avatar: upload assets/2x2.jpg to your repo to make it permanent -->
         <img id="avatarImg" src="assets/2x2.jpg" alt="Semfred Martinez photo" class="avatar" onerror="this.style.display='none'"/>
         <div class="text">
           <h1 class="name">Semfred Martinez</h1>
           <p class="role">Network Engineer — Design · Automation · Troubleshooting</p>
         </div>
 
-        <!-- Avatar controls: file input is client-side only (preview + download).
-             To make the picture permanent on GitHub, upload the chosen file to your repo (instructions below). -->
-       <div class="avatar-controls" aria-hidden="false">
-          <label class="btn small" for="avatarInput">Change photo</label>
-          <input id="avatarInput" type="file" accept="image/*" style="display:none" />
-          <a id="avatarDownload" class="btn small ghost" style="display:none" download>Download image</a>
-        </div>
-
-        <!-- Quick CV link (place semfred-cv.pdf in assets/) -->
+        <!-- Quick CV link (place CV.pdf in assets/) -->
         <a class="download-cv" href="assets/CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
       </div>
 
@@ -216,46 +208,6 @@
   <script>
     // small UX niceties
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Avatar preview + download helper
-    (function () {
-      const input = document.getElementById('avatarInput');
-      const img = document.getElementById('avatarImg');
-      const dl = document.getElementById('avatarDownload');
-      let objectUrl = null;
-
-      input.addEventListener('change', async (e) => {
-        const file = e.target.files && e.target.files[0];
-        if (!file) return;
-
-        // create preview
-        if (objectUrl) URL.revokeObjectURL(objectUrl);
-        objectUrl = URL.createObjectURL(file);
-        img.src = objectUrl;
-        img.style.display = 'inline-block';
-
-        // prepare download link so you can save the chosen file locally and then upload it to your repo.
-        dl.href = objectUrl;
-        dl.download = file.name || 'avatar.png';
-        dl.style.display = 'inline-block';
-
-        // Accessibility: focus download so keyboard users can pick it up easily.
-        dl.focus();
-      });
-
-      // optional: allow drag & drop onto avatar to select a file
-      img.addEventListener('dragover', (ev) => { ev.preventDefault(); ev.dataTransfer.dropEffect = 'copy'; });
-      img.addEventListener('drop', (ev) => {
-        ev.preventDefault();
-        const f = ev.dataTransfer.files && ev.dataTransfer.files[0];
-        if (!f) return;
-        // set file into input to reuse same logic
-        const dt = new DataTransfer();
-        dt.items.add(f);
-        input.files = dt.files;
-        input.dispatchEvent(new Event('change'));
-      });
-    }());
   </script>
 </body>
 </html>
