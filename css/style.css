@@ -1,0 +1,148 @@
+/* Portfolio CSS
+   - Clean typography
+   - Responsive grid
+   - Accessible color contrast
+   - Light/Dark theme support
+*/
+
+/* Root variables */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #666666;
+  --primary: #2563eb; /* blue-600 */
+  --accent: #10b981;  /* emerald-500 */
+  --border: #e5e7eb;
+  --card: #fafafa;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Dark mode (auto if user prefers) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --text: #e5e7eb;
+    --muted: #9aa0a6;
+    --primary: #60a5fa;
+    --accent: #34d399;
+    --border: #1f2937;
+    --card: #151821;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+}
+
+/* Base reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header / Nav */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.4px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.5rem 0.25rem;
+  border-radius: 6px;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--primary);
+  background: rgba(37,99,235,0.08);
+  outline: none;
+}
+
+/* Hero */
+.hero {
+  padding: 3.5rem 0 2.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 60ch;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.cta-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.06s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+/* Section titles */
+.section-title {
+  font-size
