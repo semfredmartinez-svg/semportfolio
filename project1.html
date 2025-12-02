@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automated Config Compliance — Semfred Martinez</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1 class="name">Semfred Martinez</h1>
+      </div>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="project-detail">
+      <h2>Automated Config Compliance</h2>
+      <p>Overview: I implemented an automated compliance pipeline using Ansible and Python to audit, report, and remediate configuration drift across a fleet of network devices.</p>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Detect missing security hardening settings and configuration drift.</li>
+        <li>Provide safe, auditable remediation steps via Git-controlled playbooks.</li>
+        <li>Integrate with CI pipelines to run checks before changes are deployed.</li>
+      </ul>
+
+      <h3>Approach & Tools</h3>
+      <ul>
+        <li>Ansible playbooks and roles for device connectivity and idempotent changes.</li>
+        <li>Python scripts for parsing device outputs and producing normalized diffs.</li>
+        <li>Git for change history; CI job triggers pre-deploy audits.</li>
+      </ul>
+
+      <h3>Benefits</h3>
+      <ul>
+        <li>Reduced manual drift incidents by ~80%.</li>
+        <li>Improved auditability and faster remediation windows.</li>
+      </ul>
+
+      <p><a class="btn ghost" href="index.html">← Back to portfolio</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Semfred Martinez</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
